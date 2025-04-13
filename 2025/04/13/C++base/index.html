@@ -1,0 +1,307 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C++ base | 张振强的个人博客</title><meta name="author" content="张振强"><meta name="copyright" content="张振强"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="C++基础资料：https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_44368437&#x2F;article&#x2F;details&#x2F;117563488 C++与 C 的区别（来自CSDN）1.编程范式 C语言：C是一种过程式编程语言，主要关注函数和过程。程序是通过一系列函数调用来执行任务的。 C++：C++支持多种编程范式，最主要的是面向对象编程（OOP），同时也支持过程式编程。C++引入了类、对象、继承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ base">
+<meta property="og:url" content="http://example.com/2025/04/13/C++base/index.html">
+<meta property="og:site_name" content="张振强的个人博客">
+<meta property="og:description" content="C++基础资料：https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_44368437&#x2F;article&#x2F;details&#x2F;117563488 C++与 C 的区别（来自CSDN）1.编程范式 C语言：C是一种过程式编程语言，主要关注函数和过程。程序是通过一系列函数调用来执行任务的。 C++：C++支持多种编程范式，最主要的是面向对象编程（OOP），同时也支持过程式编程。C++引入了类、对象、继承">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/paidaxing_icon.jpg">
+<meta property="article:published_time" content="2025-04-12T16:09:22.000Z">
+<meta property="article:modified_time" content="2025-04-13T11:50:14.242Z">
+<meta property="article:author" content="张振强">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/paidaxing_icon.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "C++ base",
+  "url": "http://example.com/2025/04/13/C++base/",
+  "image": "http://example.com/img/paidaxing_icon.jpg",
+  "datePublished": "2025-04-12T16:09:22.000Z",
+  "dateModified": "2025-04-13T11:50:14.242Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "张振强",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon_1.png"><link rel="canonical" href="http://example.com/2025/04/13/C++base/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++ base',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/index_img.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/load4.gif" data-original="/img/paidaxing_icon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comment"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/index_img.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">张振强的个人博客</span></a><a class="nav-page-title" href="/"><span class="site-name">C++ base</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comment"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">C++ base</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-12T16:09:22.000Z" title="发表于 2025-04-13 00:09:22">2025-04-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-13T11:50:14.242Z" title="更新于 2025-04-13 19:50:14">2025-04-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C-%E5%AD%A6%E4%B9%A0/">C++ 学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">4.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h1><p><strong>资料</strong>：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44368437/article/details/117563488">https://blog.csdn.net/weixin_44368437/article/details/117563488</a></p>
+<h2 id="C-与-C-的区别（来自CSDN）"><a href="#C-与-C-的区别（来自CSDN）" class="headerlink" title="C++与 C 的区别（来自CSDN）"></a>C++与 C 的区别（来自CSDN）</h2><p>1.编程范式</p>
+<p>C语言：C是一种过程式编程语言，主要关注函数和过程。程序是通过一系列函数调用来执行任务的。</p>
+<p>C++：C++支持多种编程范式，最主要的是面向对象编程（OOP），同时也支持过程式编程。C++引入了类、对象、继承、多态、封装和抽象等OOP概念，使得代码可以更具模块化和可重用性。</p>
+<p>2.类和对象</p>
+<p>C语言：C不支持面向对象编程，没有类和对象的概念。</p>
+<p>C++：C++支持类和对象，允许开发者创建自定义的数据类型，进行更高级别的抽象和封装。</p>
+<p>3.函数重载和运算符重载</p>
+<p>C语言：C不支持函数重载或运算符重载，函数名必须是唯一的，运算符功能是固定的。</p>
+<p>C++：C++允许函数重载（同名函数可以有不同的参数）和运算符重载（例如，可以定义“+”来用于两个自定义对象之间的加法操作）。</p>
+<p>4.标准库</p>
+<p>C语言：C的标准库较为基础，主要提供了一些与输入输出、字符串处理、数学计算等相关的函数（如stdio.h，stdlib.h等）。</p>
+<p>C++：C++有更丰富的标准库，除了C语言的标准库外，还引入了STL（标准模板库），提供了常用的数据结构（如vector，list，map等）和算法。</p>
+<p>5.内存管理</p>
+<p>C语言：C的内存管理主要通过malloc，calloc，realloc和free来进行手动内存分配和释放。</p>
+<p>C++：C++除了可以使用C的内存管理函数外，还引入了new和delete运算符，用于动态内存分配和释放，这些运算符具有构造和析构对象的功能。</p>
+<p>6.构造函数和析构函数</p>
+<p>C语言：C不支持构造函数和析构函数，结构体的初始化需要手动完成。</p>
+<p>C++：C++中的类可以有构造函数（对象创建时自动调用）和析构函数（对象销毁时自动调用），用于对象的初始化和清理工作。</p>
+<p>7.命名空间（namespace）</p>
+<p>C语言：C不支持命名空间，多个全局变量和函数可能会发生命名冲突。</p>
+<p>C++：C++引入了命名空间，通过namespace可以将函数和变量组织在一起，避免命名冲突。</p>
+<p>8.模板编程</p>
+<p>C语言：C不支持模板编程。</p>
+<p>C++：C++引入了模板，可以编写泛型函数和类，支持代码重用和类型安全。例如，模板可以实现类型无关的函数和容器。</p>
+<p>9.异常处理</p>
+<p>C语言：C没有内置的异常处理机制。错误处理通常通过返回错误码或者设置全局变量来完成。</p>
+<p>C++：C++支持异常处理机制，通过try，throw，catch块来处理运行时错误，使得代码更加清晰和健壮。</p>
+<p>10.引用（reference）</p>
+<p>C语言：C只支持指针，不支持引用。</p>
+<p>C++：C++引入了引用类型（reference），是一种更安全且更简洁的传递对象的方式，可以避免指针的一些常见错误（如空指针或指针操作中的内存泄漏问题）。</p>
+<p>11.兼容性</p>
+<p>C语言：C是C++的子集，大部分C语言代码可以直接在C++中运行。</p>
+<p>C++：C++是C的超集，但C++的一些特性（如类、模板等）在C中不可用。</p>
+<p>12.代码复杂性与应用领域</p>
+<p>C语言：C的语法较为简单直接，适用于系统级编程，如操作系统开发、嵌入式系统、驱动程序等领域。</p>
+<p>C++：C++功能更为复杂，适用于大型软件开发、游戏开发、高性能应用、GUI应用程序等。</p>
+<h2 id="面向对象的概念"><a href="#面向对象的概念" class="headerlink" title="面向对象的概念"></a>面向对象的概念</h2><p><strong>面向对象程序设计</strong>（Object-Oriented Programming，OOP）是一种新的程序设计范型。程序设计范型是指设计程序的规范、模型和风格，它是一类程序设计语言的基础。</p>
+<p><strong>面向过程程序设计范型</strong>是使用较广泛的面向过程性语言，其主要特征是：程序由过程定义和过程调用组成（简单地说，过程就是程序执行某项操作的一段代码，函数就是最常用的过程）。</p>
+<p>面向对象程序的基本元素是对象，面向对象程序的主要结构特点是：第一，程序一般由类的定义和类的使用两部分组成；第二，程序中的一切操作都是通过向对象发送消息来实现的，对象接收到消息后，启动有关方法完成相应的操作。</p>
+<p><img src="/img/load4.gif" data-original="/../0_images/C++base/1_C++%E5%9F%BA%E7%A1%80_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.png" alt="alt text"></p>
+<h2 id="C-基础知识"><a href="#C-基础知识" class="headerlink" title="C++基础知识"></a>C++基础知识</h2><h3 id="sizeof-大小"><a href="#sizeof-大小" class="headerlink" title="sizeof 大小"></a>sizeof 大小</h3><p><img src="/img/load4.gif" data-original="/../0_images/C++base/2_C++%E5%9F%BA%E7%A1%80_sizeof.png" alt="alt text"></p>
+<p>C++涉及强制转化，一般是转化的时候是需要一些低位向高位进行转换</p>
+<h3 id="const修饰符"><a href="#const修饰符" class="headerlink" title="const修饰符"></a>const修饰符</h3><p>在C语言中，习惯使用#define来定义常量，例如#define PI 3.14，C++提供了一种更灵活、更安全的方式来定义常量，即使用const修饰符来定义常量。例如const float PI &#x3D; 3.14</p>
+<p>这里要特别注意两个概念 常量指针和指针常量</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 常量指针：（指向常量的指针，指针指的是一个常量，但是指针自己不是一个常量）</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* pc = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line"><span class="comment">// 指针所指的地址里面的内容无法改变</span></span><br><span class="line"><span class="comment">// pc[3] = &#x27;a&#x27;; 这是错误的</span></span><br><span class="line"><span class="comment">// 指针所指的内容可以改变</span></span><br><span class="line">pc = <span class="string">&quot;ervfs&quot;</span>;  <span class="comment">//该语句付给了指针另一个字符串的地址，改变了pc的值</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指针常量：（指针本身是一个常量，也就是说，指针所指向的地址是无法改变的，但是地址内部的值是可以改变的）</span></span><br><span class="line"><span class="type">char</span>* <span class="type">const</span> pc = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line"><span class="comment">//指针所指的地址无法改变</span></span><br><span class="line"><span class="comment">//pc = &#x27;dsff&#x27;;  //该语句付给了指针另一个字符串的地址，改变了pc的值,这是不可以的</span></span><br><span class="line"><span class="comment">//地址内部的值是可以改变的</span></span><br><span class="line">pc[<span class="number">3</span>] = <span class="string">&#x27;x&#x27;</span>; <span class="comment">//仅改变地址内容是可以的</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 两者一起用 内容和地址均不能改变</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* <span class="type">const</span> pc = <span class="string">&quot;abcd&quot;</span>;的</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="void-指针"><a href="#void-指针" class="headerlink" title="void 指针"></a>void 指针</h3><p>void通常表示无值，但将void作为指针的类型时，它却表示不确定的类型。这种void型指针是一种通用型指针，也就是说任何类型的指针值都可以赋给void类型的指针变量。</p>
+<p>需要指出的是，这里说void型指针是通用指针，是指它可以接受任何类型的指针的赋值，但对已获值的void型指针，对它进行再处理，如输出或者传递指针值时，则必须再进行<strong>显式类型转换</strong>，否则会出错。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// void指针</span></span><br><span class="line"><span class="type">void</span> * pc;</span><br><span class="line"><span class="comment">// int型</span></span><br><span class="line"><span class="type">int</span> i = <span class="number">123</span>;</span><br><span class="line">cout&lt;&lt;i&lt;&lt;endl;</span><br><span class="line"><span class="comment">// char型</span></span><br><span class="line"><span class="type">char</span> c = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">cout&lt;&lt;c&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// int * 赋值给 void * 使用的时候需要进行强制转化</span></span><br><span class="line">pc = &amp;i;</span><br><span class="line">cout&lt;&lt; *(<span class="type">int</span> *)pc &lt;&lt;endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// int * 赋值给 void * 使用的时候需要进行强制转化</span></span><br><span class="line">pc = &amp;c;</span><br><span class="line">cout&lt;&lt; *(<span class="type">char</span> *)pc &lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+
+<h3 id="內联函数"><a href="#內联函数" class="headerlink" title="內联函数"></a>內联函数</h3><p>在函数名前冠以关键字inline，该函数就被声明为内联函数。每当程序中出现对该函数的调用时，C++编译器使用函数体中的代码插入到调用该函数的语句之处，同时使用实参代替形参，以便在程序运行时不再进行函数调用。引入内联函数主要是为了消除调用函数时的系统开销，以提高运行速度</p>
+<p>内联函数在第一次被调用之前必须进行完整的定义，否则编译器将无法知道应该插入什么代码</p>
+<p>在内联函数体内一般不能含有复杂的控制语句，如for语句和switch语句等</p>
+<p>使用内联函数是一种空间换时间的措施，若内联函数较长，较复杂且调用较为频繁时不建议使用</p>
+<p><strong>注意內联函数与宏定义的区别</strong></p>
+<p>实现机制上：（內联函数是在编译阶段，编译器处理的，宏定义是在编译之前，预处理器来处理的，简单的文本替换不）</p>
+<p>内联函数：是C++中的一种函数定义方式，使用inline关键字修饰。在编译阶段，编译器会根据一定的规则（如函数体较小、调用频繁等）将内联函数的代码直接插入到每个调用点，从而避免函数调用的开销。内联函数的实现依赖于编译器的优化机制，编译器有权决定是否将某个函数内联。</p>
+<p>宏定义：是C语言中的一种预处理指令，使用#define关键字定义。在预处理阶段，预处理器会将宏定义的代码直接替换到每个宏调用点，不涉及编译器的优化决策。宏定义的替换是简单的文本替换，不进行语法检查和类型检查。</p>
+<p>安全性上：（宏定义只是简简单单的文本替换，不涉及一些语法检查）</p>
+<p>内联函数：具有函数的所有特性，如类型检查、作用域规则等，能够保证代码的安全性和正确性。编译器会对内联函数的参数和返回值进行严格的类型检查，避免类型不匹配等问题。</p>
+<p>宏定义：由于是简单的文本替换，不进行类型检查和语法检查，容易引发类型不匹配、运算符优先级错误等问题。例如，#define MAX(a, b) ((a) &gt; (b) ? (a) : (b))，如果调用MAX(x++, y++)，可能会导致意外的结果，因为宏会将代码展开为((x++) &gt; (y++) ? (x++) : (y++))，导致x和y被多次自增。</p>
+<p>调试难度上：</p>
+<p>内联函数：与普通函数类似，调试工具可以像调试普通函数一样调试内联函数，能够设置断点、查看变量值等，调试过程相对容易。</p>
+<p>宏定义：由于宏定义的代码在预处理阶段被替换，调试工具无法直接调试宏定义的代码，只能看到替换后的代码，这增加了调试的难度</p>
+<p>适用场景上：</p>
+<p>内联函数：适用于函数体较小、调用频繁且需要类型安全的场景。例如，简单的数学计算函数、获取数组元素等。内联函数可以提高代码的可读性和可维护性，同时减少函数调用的开销。</p>
+<p>宏定义：适用于需要快速替换文本、生成代码模板的场景。例如，定义常量、简单的代码片段等。宏定义可以提高代码的灵活性，但需要谨慎使用，避免引入错误。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">circle</span><span class="params">(<span class="type">double</span> r)</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> PI = <span class="number">3.14</span>;</span><br><span class="line">    <span class="keyword">return</span> PI * r * r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">        cout &lt;&lt;<span class="string">&quot;r = &quot;</span>&lt;&lt; i &lt;&lt;<span class="string">&quot; area = &quot;</span> &lt;&lt; <span class="built_in">circle</span>(i) &lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="带有默认参数值的函数"><a href="#带有默认参数值的函数" class="headerlink" title="带有默认参数值的函数"></a>带有默认参数值的函数</h3><p>当进行函数调用时，编译器按<strong>从左到右</strong>的顺序将实参与形参结合，若未指定足够的实参，则编译器按顺序用函数原型中的默认值来补足所缺少的实参。</p>
+<p>所以如果要使用默认值的话，一定要注意，从左到右只有最右边的形参可以家默认值，不可以左边的加上了默认值，但是右边的没加（在函数原型中，所有取默认值的参数都必须出现在不取默认值的参数的右边。）</p>
+<p>在函数调用时，若某个参数省略，则其后的参数皆应省略而采取默认值。不允许某个参数省略后，再给其后的参数指定参数值。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">defaultParaFunc</span><span class="params">(<span class="type">int</span> a = <span class="number">5</span>,<span class="type">int</span> b = <span class="number">10</span>)</span></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;a = &quot;</span>&lt;&lt;a&lt;&lt;<span class="string">&quot; b = &quot;</span>&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">defaultParaFunc</span>();   <span class="comment">//默认 a=5 b=10</span></span><br><span class="line">    <span class="built_in">defaultParaFunc</span>(<span class="number">25</span>); <span class="comment">//a=25 默认 b=10</span></span><br><span class="line">    <span class="built_in">defaultParaFunc</span>(<span class="number">25</span>,<span class="number">30</span>); <span class="comment">// a=25 b=30</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><p>在C++中，用户可以重载函数。这意味着，在同一作用域内，只要<strong>函数参数的类型不同，或者参数的个数不同，或者二者兼而有之</strong>，两个或者两个以上的函数可以使用相同的函数名。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">add</span><span class="params">(<span class="type">double</span> x, <span class="type">double</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> z)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y + z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">3</span>, b = <span class="number">5</span>, c = <span class="number">7</span>;</span><br><span class="line">    <span class="type">double</span> x = <span class="number">10.334</span>, y = <span class="number">8.9003</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">add</span>(a, b) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">add</span>(x, y) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">add</span>(a, b, c) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：返回值类型不同不算重载（调用重载函数时，函数返回值类型不在参数匹配检查之列。因此，若两个函数的参数个数和类型都相同，而只有返回值类型不同，则不允许重载。）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">mul</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">mul</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>注意：重载和带默认值的函数容易造成二义性</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Drawcircle</span><span class="params">(<span class="type">int</span> r = <span class="number">0</span>, <span class="type">int</span> x = <span class="number">0</span>, <span class="type">int</span> y = <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Drawcircle</span><span class="params">(<span class="type">int</span> r)</span></span>;</span><br><span class="line"><span class="built_in">Drawcircle</span>(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意：C++可能会做强制类型转换</p>
+<p>在调用函数时，如果给出的实参和形参类型不相符，C++的编译器会自动地做类型转换工作。如果转换成功，则程序继续执行，在这种情况下，有可能产生不可识别的错误。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f_a</span><span class="params">(<span class="type">int</span> x)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f_a</span><span class="params">(<span class="type">long</span> x)</span></span>;</span><br><span class="line"><span class="built_in">f_a</span>(<span class="number">20.83</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="作用域标识符：："><a href="#作用域标识符：：" class="headerlink" title="作用域标识符：："></a>作用域标识符：：</h3><p>通常情况下，如果有两个同名变量，一个是全局的，另一个是局部的，那么局部变量在其作用域内具有较高的优先权，它将屏蔽全局变量。</p>
+<p>如果希望在局部变量的作用域内使用同名的全局变量，可以在该变量前加上“::”，此时::value代表全局变量value，“::”称为作用域标识符。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> value;   <span class="comment">//定义全局变量value</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> value;  <span class="comment">//定义局部变量value</span></span><br><span class="line">    value = <span class="number">100</span>;</span><br><span class="line">    ::value = <span class="number">1000</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;local value : &quot;</span> &lt;&lt; value &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;global value : &quot;</span> &lt;&lt; ::value &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><p>可用强制类型转换将不同类型的数据进行转换。例如，要把一个整型数（int）转换为双精度型数（double），可使用如下的格式：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">10</span>;</span><br><span class="line"><span class="type">double</span> x = (<span class="type">double</span>)i;</span><br><span class="line">或</span><br><span class="line"><span class="type">int</span> i = <span class="number">10</span>;</span><br><span class="line"><span class="type">double</span> x = <span class="built_in">double</span>(i);</span><br></pre></td></tr></table></figure>
+
+<h3 id="new和delete运算符"><a href="#new和delete运算符" class="headerlink" title="new和delete运算符"></a>new和delete运算符</h3><p>程序运行时，计算机的内存被分为4个区：程序代码区、全局数据区、堆和栈。其中，堆可由用户分配和释放。C语言中使用函数malloc()和free()来进行动态内存管理。C++则提供了运算符new和delete来做同样的工作，而且后者比前者性能更优越，使用更灵活方便。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">指针变量名 = <span class="keyword">new</span> 类型</span><br><span class="line">    <span class="type">int</span> *p;</span><br><span class="line">    p = <span class="keyword">new</span> <span class="type">int</span>;</span><br><span class="line"><span class="keyword">delete</span> 指针变量名</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br></pre></td></tr></table></figure>
+
+<p>下面对new和delete的使用再做一下几点说明：</p>
+<p>申请后的释放工作：用运算符new分配的空间，使用结束后应该用也只能用delete显式地释放，否则这部分空间将不能回收而变成死空间。</p>
+<p>异常处理工作：在使用运算符new动态分配内存时，如果没有足够的内存满足分配要求，new将返回空指针（NULL）。</p>
+<p>使用运算符new可以为数组动态分配内存空间，这时需要在类型后面加上数组大小。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">指针变量名 = <span class="keyword">new</span> 类型名[下标表达式];</span><br><span class="line"><span class="type">int</span> *p = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> []指针变量名;</span><br><span class="line"><span class="keyword">delete</span> p;</span><br></pre></td></tr></table></figure>
+
+<p>new 可在为简单变量分配空间的同时，进行初始化</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">指针变量名 = <span class="keyword">new</span> 类型名(初值);</span><br><span class="line"><span class="type">int</span> *p;</span><br><span class="line">p = <span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">99</span>);</span><br><span class="line">···</span><br><span class="line"><span class="keyword">delete</span> p;</span><br></pre></td></tr></table></figure>
+
+<p>异常处理要注意：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//异常处理，一定要注意</span></span><br><span class="line">    <span class="type">int</span>* ptr = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ptr = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">100</span>];</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::bad_alloc&amp; e) &#123;</span><br><span class="line">        cerr &lt;&lt; <span class="string">&quot;Memory allocation failed: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] ptr;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用（reference）是C++对C的一个重要扩充。变量的引用就是变量的别名，因此引用又称别名。</p>
+<p>类型 &amp;引用名 &#x3D; 已定义的变量名</p>
+<p>引用与其所代表的变量共享同一内存单元，系统并不为引用另外分配存储空间。实际上，编译系统使引用和其代表的变量具有相同的地址。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">10</span>;</span><br><span class="line">    <span class="type">int</span> &amp;j = i;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;i = &quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot; j = &quot;</span> &lt;&lt; j &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;i的地址为 &quot;</span> &lt;&lt; &amp;i &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;j的地址为 &quot;</span> &lt;&lt; &amp;j &lt;&lt; endl;</span><br><span class="line">    <span class="comment">//输出的结果是一样的</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>引用并不是一种独立的数据类型，它必须与某一种类型的变量相联系。在声明引用时，必须立即对它进行初始化，不能声明完成后再赋值。</p>
+<p>为引用提供的初始值，可以是一个变量或者另一个引用。</p>
+<p>指针是通过地址间接访问某个变量，而引用则是通过别名直接访问某个变量。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> &amp;a, <span class="type">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[] = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span>&amp; <span class="title">index</span><span class="params">(<span class="type">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">5</span>, b = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//交换数字a和b</span></span><br><span class="line">    <span class="built_in">swap</span>(a, b);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a = &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot; b = &quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">index</span>(<span class="number">2</span>) &lt;&lt; endl;   <span class="comment">//等价于输出元素a[2]的值</span></span><br><span class="line">    <span class="built_in">index</span>(<span class="number">2</span>) = <span class="number">100</span>;             <span class="comment">//等价于将a[2]的值赋为100;</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">index</span>(<span class="number">2</span>) &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>进一步说明：</p>
+<p>不允许建立void类型的引用</p>
+<p>不能建立引用的数组</p>
+<p>不能建立引用的引用。不能建立指向引用的指针。引用本身不是一种数据类型，所以没有引用的引用，也没有引用的指针。</p>
+<p>可以将引用的地址赋值给一个指针，此时指针指向的是原来的变量。</p>
+<p>可以用const对引用加以限定，不允许改变该引用的值，但是它不阻止引用所代表的变量的值。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">张振强</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/04/13/C++base/">http://example.com/2025/04/13/C++base/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">张振强的个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a><a class="post-meta__tags" href="/tags/%E5%9F%BA%E7%A1%80/">基础</a></div><div class="post-share"><div class="social-share" data-image="/img/paidaxing_icon.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/04/13/ThreadPool/" title="ThreadPool"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">ThreadPool</div></div><div class="info-2"><div class="info-item-1">线程池项目基本概念线程池的概念： 线程池是一种用于优化线程管理和任务调度的并发编程机制，其核心在于复用线程、控制资源使用，并提升系统性能。 说白了就是，为了防止这么构造线程的浪费太多的时间，先把线程创建好，放在那等着，有任务提交的话就直接处理，省去了构造线程的过程 那么我们就可以想到一个线程池的最基础的构造 变量：  一个vector 用来存储构造好的线程 一个queue 用来存储task (利用先进先出的思想，先来先服务 嘛 ) mutex  有了queue自然得考虑到互斥的问题 condition_variable 条件变量 同mutex理 flag   停止标识  函数：  首先得有初始化函数，用来构造线程 (此处可以使用类的构造函数) 其次得有线程的释放join 的函数  （此处可以使用类的析构函数） 还有得有添加任务的函数  ThreadPool声明通过前面描述来声明一下CLASS class ThreadPool&#123;private:    std::vector&lt;std::thread&gt; workers;        // 工作线程集合   ...</div></div></div></a><a class="pagination-related" href="/2025/04/13/C++class/" title="C++ class"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">C++ class</div></div><div class="info-2"><div class="info-item-1">C++类资料 https://blog.csdn.net/m0_65635427/article/details/132167140 基本的小概念面向过程：根据程序的执行过程，来设计软件的所有细节。开发大型项目时，越来越难以把控，甚至失去控制。后期维护、更新成本很大。 类的使用 面向对象编程，最重要的第一个概念：类 “人类”是一个抽象的概念，不是具体的某个人。 “类”，是看不见，摸不着的，是一个纯粹的概念. “类”，是一种特殊的“数据类型”，不是一个具体的数据。 注意：类， 和基本数据类型（char&#x2F;int&#x2F;short&#x2F;long&#x2F;long long&#x2F;float&#x2F;double）不同类的构成：方法和数据 类是由：方法 + 数据...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/04/13/C++class/" title="C++ class"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-13</div><div class="info-item-2">C++ class</div></div><div class="info-2"><div class="info-item-1">C++类资料 https://blog.csdn.net/m0_65635427/article/details/132167140 基本的小概念面向过程：根据程序的执行过程，来设计软件的所有细节。开发大型项目时，越来越难以把控，甚至失去控制。后期维护、更新成本很大。 类的使用 面向对象编程，最重要的第一个概念：类 “人类”是一个抽象的概念，不是具体的某个人。 “类”，是看不见，摸不着的，是一个纯粹的概念. “类”，是一种特殊的“数据类型”，不是一个具体的数据。 注意：类， 和基本数据类型（char&#x2F;int&#x2F;short&#x2F;long&#x2F;long long&#x2F;float&#x2F;double）不同类的构成：方法和数据 类是由：方法 + 数据...</div></div></div></a><a class="pagination-related" href="/2025/04/13/C++exception/" title="C++ exception"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-13</div><div class="info-item-2">C++ exception</div></div><div class="info-2"><div class="info-item-1">C++异常处理异常无处不在，程序随时可能误入歧途！C++ 提出了新的异常处理机制！ 异常是一种程序控制机制，与函数机制互补 函数是一种以栈结构展开的上下函数衔接的程序控制系统,异常是另一种控制结构,它可以在出现“意外”时中断当前函数,并以某种机制（类型匹配）回馈给隔代的调用者相关的信息. 传统错误处理机制通过函数返回值来处理错误 #include &lt;stdio.h&gt;#include &lt;stdlib.h&gt; #define BUFSIZE 1024 //实现文件的二进制拷贝int copyfile(const char *dest,const char *src)&#123;	FILE *fp1 = NULL, *fp2 = NULL; 	//rb 只读方式打开一个二进制文件，只允许读取数据	fopen_s(&amp;fp1, src, &quot;rb&quot;); 	if(fp1 == NULL)&#123;		return -1;	&#125; 	//wb 以只写的方式打开或新建一个二进制文件，只允许写数据。	fopen_s(&amp;fp2,...</div></div></div></a><a class="pagination-related" href="/2025/04/13/C++friend/" title="C++ friend"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-13</div><div class="info-item-2">C++ friend</div></div><div class="info-2"><div class="info-item-1">C++友元使用前提：某个类需要实现某种功能，但是这个类自身，因为各种原因，无法自己实现。 需要借助于“外力”才能实现。 友元的两种使用形式：友元函数、友元类。 友元函数使用全局函数作为友元函数全局函数可以直接访问类内的私有成员！！！！！ #include&lt;iostream&gt;#include &lt;sstream&gt;using namespace std;class Computer &#123; public:    Computer()&#123;        cpu = &quot;i7&quot;;    &#125;;    // 使用全局函数作为友元函数    friend void upgrade(Computer* computer);    string description()&#123;        stringstream ret;         ret &lt;&lt; &quot;CPU:&quot; &lt;&lt; cpu;         return ret.str();    &#125;;private:    ...</div></div></div></a><a class="pagination-related" href="/2025/04/13/C++operaOvlod/" title="C++ operaOvlod"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-13</div><div class="info-item-2">C++ operaOvlod</div></div><div class="info-2"><div class="info-item-1">C++运算法重载C&#x2F;C++的运算符，支持的数据类型，仅限于基本数据类型。 问题：  一头牛+一头马 &#x3D; ？（牛马神兽？）  一个圆 +一个圆 &#x3D; ？ （想要变成一个更大的圆）  一头牛 – 一只羊 &#x3D; ？ (想要变成 4 只羊，原始的以物易物：1 头牛价值 5 只羊)   解决方案：使用运算符重载 那些可以重载  为了防止对标准类型进行运算符重载，   C++规定重载运算符的操作对象至少有一个不是标准类型，而是用户自定义的类型比如不能重载 1+2 但是可以重载            cow + 2 和 2 + cow    // cow 是自定义的对象   不能改变原运算符的语法规则， 比如不能把双目运算符重载为单目运算  不能改变原运算符的优先级  不能创建新的运算符，比如 operator*就是非法的, operator是可以的  不能对以下这四种运算符，使用友元函数进行重载&#x3D; 赋值运算符，（）函数调用运算符，[...</div></div></div></a><a class="pagination-related" href="/2025/04/13/C++pointer/" title="C++ pointer"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-13</div><div class="info-item-2">C++ pointer</div></div><div class="info-2"><div class="info-item-1">C++指针主要介绍一些C++指针的一些知识，基础的就不做介绍了 智能指针参考：https://blog.csdn.net/weixin_43908419/article/details/131060402 什么是智能指针智能指针RAII(Resource Acquisition Is Initialization)，是一种利用对象的生命周期来管理资源的技术。如果我们采用传统的new&#x2F;delete来申请和释放资源，如果忘记调用delete，或者在调用delete之前程序抛出异常，都会导致内存泄漏问题 最简单的例子： void Func()&#123;	int* p1 = new int[5];	int* p2 = new int[5]; 	//这里Div函数会抛异常，main函数会捕获异常，delete[]没有执行，引发内存泄漏	int ret = Div(5, 0); 	delete[] p1;	delete[] p2;&#125;  Func函数中的new...</div></div></div></a><a class="pagination-related" href="/2025/04/13/C++polymorphism/" title="C++polymorphism"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-13</div><div class="info-item-2">C++polymorphism</div></div><div class="info-2"><div class="info-item-1">C++多态基本概念允许一个接口被多种不同的实现使用 虚函数，实现多态。 #include &lt;iostream&gt;using namespace std; class Father &#123;public:    virtual void play() &#123;        cout &lt;&lt; &quot;到 KTV 唱歌...&quot; &lt;&lt; endl;    &#125;&#125;; class Son :public Father &#123;public:    virtual void play() &#123;        cout &lt;&lt; &quot;一起打王者吧！&quot; &lt;&lt; endl;    &#125;&#125;; void party(Father **men, int n) &#123;    for (int i = 0; i&lt;n; i++) &#123;        men[i]-&gt;play();    &#125;&#125; int main(void)...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/load4.gif" data-original="/img/paidaxing_icon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张振强</div><div class="author-info-description">咱们都是最棒的</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zqzhang2023"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/zqzhang2023" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_45769058" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1611379529&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:bzzhenqiang@163.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">C++基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E4%B8%8E-C-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E6%9D%A5%E8%87%AACSDN%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">C++与 C 的区别（来自CSDN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.</span> <span class="toc-text">面向对象的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.3.</span> <span class="toc-text">C++基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sizeof-%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text">sizeof 大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.3.2.</span> <span class="toc-text">const修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#void-%E6%8C%87%E9%92%88"><span class="toc-number">1.3.3.</span> <span class="toc-text">void 指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A7%E8%81%94%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.4.</span> <span class="toc-text">內联函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E6%9C%89%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.5.</span> <span class="toc-text">带有默认参数值的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-number">1.3.6.</span> <span class="toc-text">函数重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%A0%87%E8%AF%86%E7%AC%A6%EF%BC%9A%EF%BC%9A"><span class="toc-number">1.3.7.</span> <span class="toc-text">作用域标识符：：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.3.8.</span> <span class="toc-text">强制类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new%E5%92%8Cdelete%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.9.</span> <span class="toc-text">new和delete运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">1.3.10.</span> <span class="toc-text">引用</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/kinglyWay-network/" title="计算机网络 王道2026学习笔记">计算机网络 王道2026学习笔记</a><time datetime="2025-04-12T16:09:40.000Z" title="发表于 2025-04-13 00:09:40">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/kinglyWay-operatingSystem/" title="计算机操作系统 王道2026学习笔记">计算机操作系统 王道2026学习笔记</a><time datetime="2025-04-12T16:09:40.000Z" title="发表于 2025-04-13 00:09:40">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/kinglyWay-dataStructure/" title="数据结构 王道2026学习笔记(还没学习完)">数据结构 王道2026学习笔记(还没学习完)</a><time datetime="2025-04-12T16:09:40.000Z" title="发表于 2025-04-13 00:09:40">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/DesignPattern/" title="C++ 设计模式">C++ 设计模式</a><time datetime="2025-04-12T16:09:37.000Z" title="发表于 2025-04-13 00:09:37">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/C++Thread/" title="C++ Thread">C++ Thread</a><time datetime="2025-04-12T16:09:35.000Z" title="发表于 2025-04-13 00:09:35">2025-04-13</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/index_img.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By 张振强</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body></html>
